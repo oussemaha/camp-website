@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block head %}
+dashboard
+{% endblock %}
+{% block body %}
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Confirmation de supression</h4>
+            </div>
+            <div class="modal-body">
+                <p>Vous allez supprimer {{values[0]}}</p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="/supprimerAnimateur/{{i}}" class="btn btn-success">Oui</a>
+                <a type="button" class="btn btn-danger" data-dismiss="modal">Cancel</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="profileContainer">
+    <div class="firstPartProfile">
+        <center>
+            <img src="{{ url_for('static',filename=pdp)}}" alt="pic" class="imgpdp">
+
+            <h4>{{values[0]}}</h4>
+            <p>{{values[7]}}</p>
+        </center>
+    </div>
+    <div class="secondPartProfile">
+        <h3>Details</h3>
+        <div>
+            <h4>#ID</h4>
+            <p>{{i}}</p>
+        </div>
+        <div>
+            <h4>age</h4>
+            <p>{{age}}</p>
+        </div>
+        <div>
+            <h4>Tel</h4>
+            <p>{{values[4]}}</p>
+        </div>
+        <div>
+            <h4>telParent</h4>
+            <p>{{values[5]}}</p>
+        </div>
+        <div>
+            <h4>Email</h4>
+            <p>{{values[2]}}</p>
+        </div>
+        <div>
+            <h4>idChambre</h4>
+
+            <p>{{values[3]}}</p>
+        </div>
+        <div>
+            <h4>Adresse</h4>
+            <p>{{values[6]}}</p>
+        </div>
+        <div>
+            <h4>Remarque</h4>
+            <p>{{values[8]}}</p>
+        </div>
+        {% if 3 not in perms %}
+        <a href="#" class="btn btn-success disabled" style="height: 25px; font-size: 12px;">Modifier</a>
+        {% else : %}
+        <a href="/modifierAdh/{{i[0]}}" class="btn btn-success " style="height: 25px; font-size: 12px;">Modifier</a>
+        {% endif %}
+        {% if 2 not in perms %}
+        <a href="#" class="btn btn-danger disabled" style="height: 25px; font-size: 12px;">Supprimer</a>
+        {% else : %}
+        <a href="#" class="btn btn-danger " data-toggle="modal" data-target="#myModal" style="height: 25px; font-size: 12px;">Supprimer</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

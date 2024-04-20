@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block head %}
+ModifierAdh
+{% endblock %}
+{% block body %}
+<div>
+    <center>
+        <h2>Modifier adhérent</h2>
+    <form method="POST" enctype=multipart/form-data>
+        <div class="form" >
+            <div>
+                <h5>Prénom : </h5>
+                <h5>Nom : </h5>
+                <h5>Date de naissance : </h5>
+                <h5>E-mail : </h5>
+                <h5>IdChambre : </h5>
+                <h5>N°tel adhérent : </h5>
+                <h5>N°tel Parent : </h5>
+                <h5>Adresse : </h5>
+                <h5>Section : </h5>
+                <h5>Pdp : </h5>
+                <h5>Remarque : </h5>
+            </div>
+           
+            <div class="formDivAdh">
+                <input type="text" name="prenom" placeholder="Prénon" value="{{content[0]}}" required>
+                <br><input type="text" name="nom" placeholder="Nom" value="{{content[1]}}" required>
+                <br><input type="date" name="date de naissance" placeholder="date de naissance" value="{{content[2]}}" required>
+                <br><input type="email" name="emailadh" placeholder="email" value="{{content[3]}}" required>
+                <br><input type="text" name="idChambre" placeholder="idChambre" value="{{content[4]}}" disabled>
+                <br><input type="number" name="teladh" placeholder="telAdh" value="{{content[5]}}" required>
+                <br><input type="number" name="telParent" placeholder="telParent" value="{{content[6]}}" required>
+                <br><input type="text" name="adresse" placeholder="adresse" value="{{content[7]}}" required>
+                
+                <br><select class="form-select" name="section">
+                    {% if content[8]=="NONE" %}
+                    <option selected>NONE</option>
+                    <option >Robotique</option>
+                    <option>Informatique</option>
+                    <option>Astronomie</option>
+                    <option>Petit deb</option>
+                    {% elif content[8]=="Robotique" %}
+                    <option >NONE</option>
+                    <option selected>Robotique</option>
+                    <option>Informatique</option>
+                    <option>Astronomie</option>
+                    <option>Petit deb</option>
+                    {% elif content[8]=="Informatique" %}
+                    <option >NONE</option>
+                    <option >Robotique</option>
+                    <option selected>Informatique</option>
+                    <option>Astronomie</option>
+                    <option>Petit deb</option>
+                    {% elif content[8]=="Astronomie" %}
+                    <option >NONE</option>
+                    <option >Robotique</option>
+                    <option>Informatique</option>
+                    <option selected>Astronomie</option>
+                    <option>Petit deb</option>
+                    {% else %}
+                    <option >NONE</option>
+                    <option >Robotique</option>
+                    <option>Informatique</option>
+                    <option>Astronomie</option>
+                    <option selected>Petit deb</option>
+                    {% endif %}
+                </select>
+                <br><input type="file" class="custom-file-input" name="avatar"  accept="image/png, image/jpeg, image/jpg" >
+                <br><textarea class="form-control" rows="5" name="remarque" >{{content[9]}}</textarea>
+                
+            </div>
+        
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px; width: 500px;">Submit</button>
+         
+    </form>
+</center>
+
+</div>
+{% endblock %}

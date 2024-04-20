@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block head %}
+AjouterAdh
+{% endblock %}
+{% block body %}
+<div>
+    <center>
+        <h2>Ajouter animateur</h2>
+    <form method="POST" enctype=multipart/form-data>
+        <div class="form" >
+            <div>
+                <h5>Username  : </h5>
+                <h5>password : </h5>
+                <h5>Confirm password : </h5>
+                <h5>Date de naissance : </h5>
+                <h5>E-mail : </h5>
+                <h5>N°tel animateur : </h5>
+                <h5>N°tel Urgence : </h5>
+                <h5>CIN : </h5>
+                <h5>Adresse : </h5>
+                <h5>Section : </h5>
+                <h5>Pdp : </h5>
+                <h5>Remarque : </h5>
+            </div>
+           
+            <div class="formDivAdh">
+                <input type="text" name="Username" placeholder="username" value="dd" required>
+                <br><input type="password" name="passwd" placeholder="password" required>
+                <br><input type="password" name="confirm_passwd" placeholder="confirm" required>
+                <br><input type="date" name="date de naissance" placeholder="date de naissance" required>
+                <br><input type="email" name="emailanimateur" placeholder="email" required>
+                <br><input type="number" name="telAnimateur" placeholder="telAnimateur" required>
+                <br><input type="number" name="telUrgence" placeholder="telUrgence" required>
+                <br><input type="number" name="CIN" placeholder="CIN" >
+                <br><input type="text" name="adresse" placeholder="adresse" required>
+                <br><select class="form-select" name="section">
+                    <option>NONE</option>
+                    <option>Robotique</option>
+                    <option>Informatique</option>
+                    <option>Astronomie</option>
+                    <option>Petit deb</option>
+                </select>
+                <br><input type="file" class="custom-file-input" name="avatar"  accept="image/png, image/jpeg, image/jpg" >
+                <br><textarea class="form-control" rows="5" name="remarque"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px; width: 500px;">Submit</button>
+         
+    </form>
+</center>
+
+</div>
+{% endblock %}

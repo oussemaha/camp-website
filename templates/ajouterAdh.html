@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block head %}
+AjouterAdh
+{% endblock %}
+{% block body %}
+<div>
+    <center>
+        <h2>Ajouter adhérent</h2>
+    <form method="POST" enctype=multipart/form-data>
+        <div class="form" >
+            <div>
+                <h5>Prénom : </h5>
+                <h5>Nom : </h5>
+                <h5>Date de naissance : </h5>
+                <h5>E-mail : </h5>
+                <h5>N°tel adhérent : </h5>
+                <h5>N°tel Parent : </h5>
+                <h5>Adresse : </h5>
+                <h5>Section : </h5>
+                <h5>Pdp : </h5>
+                <h5>Remarque : </h5>
+            </div>
+           
+            <div class="formDivAdh">
+                <input type="text" name="prenom" placeholder="Prénon" value="dd" required>
+                <br><input type="text" name="nom" placeholder="Nom" required>
+                <br><input type="date" name="date de naissance" placeholder="date de naissance" required>
+                <br><input type="email" name="emailadh" placeholder="email" required>
+                <br><input type="number" name="teladh" placeholder="telAdh" required>
+                <br><input type="number" name="telParent" placeholder="telParent" required>
+                <br><input type="text" name="adresse" placeholder="adresse" required>
+                <br><select class="form-select" name="section">
+                    <option>NONE</option>
+                    <option>Robotique</option>
+                    <option>Informatique</option>
+                    <option>Astronomie</option>
+                    <option>Petit deb</option>
+                </select>
+                <br><input type="file" class="custom-file-input" name="avatar"  accept="image/png, image/jpeg, image/jpg" >
+                <br><textarea class="form-control" rows="5" name="remarque"></textarea>
+                
+            </div>
+        
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px; width: 500px;">Submit</button>
+         
+    </form>
+</center>
+
+</div>
+{% endblock %}

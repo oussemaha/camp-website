@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/loginstyle.css')}}" />
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="formdiv"><center>
+        <img src="{{ url_for('static',filename='media/ajst logo.png')}}" alt="logo">
+        <h1>Gestion des camps scientifiques</h1></center>
+        <form  method="post">
+            <center><select class="selectCamp" name="Camp">
+                {% for i in campl %}
+                <option value="{{i[2]}}"> Période : {{i[0]}} | lieu : {{i[1]}}</option>
+                {% endfor %}
+            </select></center>
+            <center><button type="submit" class="btn btn-success connectionBtn">Continuer</button></center>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static',filename='JS/script.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}" />
+    <title>{% block head %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container1 ">
+        <img src="{{ url_for('static',filename='media/ajst white transparent.png')}}" alt="logo">
+        <div class="user1">Hello {{name}}</div>
+
+    </div>
+    <div class="container1 dashboard">
+        <div class="menu">
+            <ul class="nav  flex-column">
+                <li class="nav-item "><a class="nav-link " href="/dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/adherent">Adhérent</a></li>
+                <li class="nav-item"><a class="nav-link" href="/animateur">Animateur</a></li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed"  data-toggle="collapse"
+                        data-target="#submenu2">Rapport</a>
+                    <div class="collapse" id="submenu2" aria-expanded="false">
+                        <ul class="flex-column pl-2 nav">
+                            <li class="nav-item"><a class="nav-link py-0" style="margin-left: 9px;" href="#">Consulter</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link py-0" style="margin-left: 9px;" href="#">Rédiger</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Exporter</a></li>
+            </ul>
+        </div>
+        <div class="main">{% block body %} {% endblock %}</div>
+    </div>
+</body>
+
+</html>

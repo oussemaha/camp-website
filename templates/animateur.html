@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block head %}
+adherent
+{% endblock %}
+{% block body %}
+<script type="text/javascript">
+
+  var intervalID = setInterval(update_values, 2000);
+  update_values()
+  function update_values() {
+    $.getJSON('/updateAnimateur',
+
+      function (data, data2) {
+        document.getElementById("total").innerText = data.totN[0]
+        document.getElementById("robotique").innerText = data.totN[1]
+        document.getElementById("info").innerText = data.totN[2]
+        document.getElementById("astro").innerText = data.totN[3]
+        document.getElementById("petit deb").innerText = data.totN[4]
+        document.getElementById("tableAnimateur").innerHTML = data.tableAnimateurHtml
+      });
+
+  };
+</script>
+<div class="numbers">
+  <div class="f">
+    <h3>Total</h3>
+    <h4 id="total">?</h4>
+  </div>
+  <div class="f">
+    <h3>Robotique</h3>
+    <h4 id="robotique">?</h4>
+  </div>
+  <div class="f">
+    <h3>Astro</h3>
+    <h4 id="astro">?</h4>
+  </div>
+  <div class="f">
+    <h3>Info</h3>
+    <h4 id="info">?</h4>
+  </div>
+  <div class="f">
+    <h3>Petit deb</h3>
+    <h4 id="petit deb">?</h4>
+  </div>
+</div>
+{% if 4 not in perms %}
+<a href="/ajouterAnimateur" class="btn btn-primary disabled" style="margin-left: 10px; margin-top: 10px;">+ Ajouter</a>
+{% else %}
+<a href="/ajouterAnimateur" class="btn btn-primary " style="margin-left: 10px; margin-top: 10px;">+ Ajouter</a>
+{% endif %}
+<div class="table">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>username</th>
+        <th>section</th>
+        <th>idChambre</th>
+        <th>numeroTel</th>
+        <th>Btn</th>
+      </tr>
+    </thead>
+    <tbody id="tableAnimateur">
+
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
